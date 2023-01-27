@@ -34,7 +34,7 @@ Clone the project
   git clone https://github.com/Shad0cks/Keylogger.git
 ```
 
-Change upload FTP variables
+Change upload FTP defines
 
 ```bash
   Keylogger/inc/Keylloger.h
