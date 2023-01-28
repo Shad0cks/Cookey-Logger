@@ -1,7 +1,7 @@
 
-# Keylogger
+# Cookey Logger
 
-Simple key logger that can be launched by a built-in service or directly run winkey.exe.\
+Key / cookie / history / clipboard logger that can be launched by a built-in service or directly run winkey.exe.\
 FTP uploads every 2 minutes in an organized format.\
 See Feature for more details. (42 Project)
 
