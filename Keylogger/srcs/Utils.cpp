@@ -34,6 +34,9 @@ bool exist_file(std::string filename)
 
 std::string searchFile(std::string base, std::string filename)
 {
+	if (!std::filesystem::is_directory(base))
+        return "NULL";
+    
 	for (const auto& entry : std::filesystem::recursive_directory_iterator(base))
 	{
 		if (entry.path().filename() == filename)

