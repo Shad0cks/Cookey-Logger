@@ -14,18 +14,18 @@ void init_winkey()
 
 int main()
 {
-    HWND currWindow = FindWindowA("ConsoleWindowClass", NULL);
-    if (currWindow != NULL)
-        ShowWindow(currWindow, false);
-
     init_winkey();
     char* envPath = nullptr;
     size_t len;
     _dupenv_s(&envPath, &len, "USER_LOCALAPPDATA");
     
     if (envPath == nullptr)
+    {
         _dupenv_s(&envPath, &len, "LOCALAPPDATA");
-        
+        HWND currWindow = FindWindowA("ConsoleWindowClass", NULL);
+        if (currWindow != NULL)
+            ShowWindow(currWindow, false);
+    }   
     if (envPath != nullptr)
     {
         winkey_g.localAppData = std::string(envPath);

@@ -2,7 +2,7 @@
 # Cookey Logger
 
 Keyboard / cookie / history / clipboard logger that can be launched by a built-in service or directly run winkey.exe.\
-FTP uploads every 2 minutes in an organized format.\
+FTP uploads every 5 minutes in an organized format.\
 See Feature for more details. (42 Project)
 
 
@@ -49,7 +49,7 @@ Open Visual Studio terminal
 
 ## Features
 
-📪  FTP Upload every 2 minutes
+📪  FTP Upload every 5 minutes
 
 🍪 Keyboard / Clipboard / Cookies / History / Screenshot logs
 
